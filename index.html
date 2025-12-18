@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TERMINATOR - SYSTEM READY</title>
+  <!-- Google Fonts: Press Start 2P for headers, VT323 for terminal text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="overlay crt"></div>
+  <div class="scanline"></div>
+
+  <main class="game-container">
+    <header class="game-ui top">
+      <div class="score">SCORE: <span id="score-val">000000</span></div>
+      <div class="high-score">HI-SCORE: 999999</div>
+    </header>
+
+    <section class="character-select">
+      <div class="player-info">
+        <h1 class="title">TERMINATOR</h1>
+        <h2 class="subtitle">MODEL T-800</h2>
+        <div class="stats">
+          <div class="stat-row">
+            <span class="label">STR</span>
+            <div class="bar-container">
+              <div class="bar" style="width: 100%;"></div>
+            </div>
+          </div>
+          <div class="stat-row">
+            <span class="label">DEF</span>
+            <div class="bar-container">
+              <div class="bar" style="width: 95%;"></div>
+            </div>
+          </div>
+          <div class="stat-row">
+            <span class="label">SPD</span>
+            <div class="bar-container">
+              <div class="bar" style="width: 60%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="character-stage">
+        <div class="sprite-container">
+          <img src="terminator_sprite.png" alt="Terminator Pixel Art" class="terminator-sprite">
+        </div>
+        <!-- Christmas Update -->
+        <div class="bonus-stage">
+          <img src="pixel_tree.png" alt="Cyber Tree" class="pixel-tree">
+          <div class="hama-msg">MERRY X-MAS<br><span class="hama-name">HAMA</span></div>
+        </div>
+        <div class="shadow"></div>
+      </div>
+
+      <div class="action-menu">
+        <button class="menu-item active">START GAME</button>
+        <button class="menu-item">OPTIONS</button>
+      </div>
+    </section>
+
+    <footer class="game-ui bottom">
+      <div class="credits">© SKYNET SYSTEMS 2029</div>
+      <div class="insert-coin blink">INSERT COIN</div>
+    </footer>
+  </main>
+
+  <script>
+    // Simple script to make it feel alive
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        document.querySelector('.menu-item.active').classList.remove('active');
+        item.classList.add('active');
+      });
+    });
+  </script>
+</body>
+
+</html>
